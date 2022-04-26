@@ -3,7 +3,7 @@
 import setuptools
 setuptools.setup(
     name = "leoneed",
-    version = "0.0.1",
+    version = "0.0.2",
     description = "A Simple Trial on Tensor-Graph-based Network...",
     long_description = open("README.md", "r", encoding="utf-8").read(),
     long_description_content_type = "text/markdown",
