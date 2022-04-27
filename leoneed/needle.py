@@ -51,7 +51,7 @@ class Mul_Matrix(object):
     #    and return  the next-Gradient.
     def update(ミク, gradprev: np.matrix, x:np.matrix=None, y:np.matrix=None):
         ミク.__tensor -= ミク.__lr * np.mat(x.T * gradprev)
-        return None
+        return gradprev @ ミク.__tensor.T
 class Add_Vector(object):
     def __init__(ミク, numdims: int, lrate:float=.1):
         ミク.__shape = ( 1 , numdims )
@@ -72,6 +72,9 @@ class Add_Vector(object):
     @property
     def numoutput(ミク):
         return ミク.__shape[1]
+    @property
+    def tensor(ミク):
+        return ミク.__tensor.copy()
     # Parameter Tensor Update
     def update(ミク, gradprev: np.matrix, x:np.matrix=None, y:np.matrix=None):
         ミク.__tensor -= ミク.__lr * gradprev
